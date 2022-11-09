@@ -1,14 +1,16 @@
 # Project information
-site_name: AI 
-# defeine TOC or order of website-
+site_name: AI Cookbook
+
+# Define TOC or order of website
 nav:
   - Home: index.md
   - Python: Python.md
   - Machine Learning: ML.md
   - Deep Learning: DL.md
   - MLOps: MLOps.md
-  - Big Data: Big Data.md
-  - Data Analytics: Data Analytics.md
+  - Big Data: BigData.md
+  - Data Analytics: DataAnalytics.md
+  - Research Papers: ResearchPapers.md
   - Feedback: Feedback.md
 
 site_author: Vishal Singh
@@ -16,7 +18,7 @@ site_description: >-
   Everything you need for your AI journey..
 
 # Repository
-repo_name: AI
+repo_name: AI Cookbook
 repo_url: https://github.com/vishalsingh17/mkdocs-demo
 
 # Configuration
@@ -27,21 +29,22 @@ theme:
     - navigation.sections
     - toc.integrate
     - navigation.top
+    - header.autohide
+    - announce.dismiss
   language: en
   palette:
     - scheme: default
       toggle:
         icon: material/toggle-switch-off-outline 
         name: Switch to dark mode
-      primary: teal
-      accent: purple 
+      primary: deep purple
     - scheme: slate 
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode    
-      primary: teal
+      primary: deep purple
       accent: lime    
-  # logo: PyTorch_logo_icon.svg
+
   
 extra:
   social:
@@ -51,9 +54,16 @@ extra:
       link: https://www.linkedin.com/in/vishalsingh1719/
     - icon: fontawesome/brands/instagram
       link: https://www.instagram.com/vishal_singh17/
+  version:
+    provider: VS17
+    default: stable
+  analytics:
+    provider: google
+    property: G-AI Cookbook
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true

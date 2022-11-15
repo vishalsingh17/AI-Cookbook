@@ -6,7 +6,7 @@
 !!! note "installation"
     To install `ensure` run the following command:
     ```bash
-    pip install ensure
+        pip install ensure
     ```
 
 ## Code used in the demo

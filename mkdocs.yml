@@ -136,6 +136,9 @@ markdown_extensions:
 plugins:
   - search
   - glightbox
+  - mkdocs-jupyter:
+      include: ["*.ipynb"]
+      include_source: True
 
 # Copyright
 copyright: |

@@ -1,0 +1,142 @@
+# Project information
+site_name: AI Cookbook
+site_url: https://vishalsingh17.github.io/AI-Cookbook/
+site_author: Vishal Singh
+
+# Page Tree
+nav:
+  - Home: Index.md
+  - Python: Python.md
+  - SQL: SQL.md
+  - Machine Learning: ML.md
+  - Deep Learning: DL.md
+  - MLOps: MLOps.md
+  - Big Data: BigData.md
+  - Data Analytics: DataAnalytics.md
+  - Research Papers: ResearchPapers.md
+  - Feedback: Feedback.md
+
+site_author: Vishal Singh
+site_description: >-
+  Everything you need for your AI journey..
+
+# Repository
+repo_name: AI Cookbook
+repo_url: https://github.com/vishalsingh17/AI-Cookbook
+
+# Configuration
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+    - header.autohide
+    - announce.dismiss
+  language: en
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode    
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/vishalsingh17/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/vishalsingh1719/
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/vishal_singh17/
+  version:
+    provider: VS17
+    default: stable
+
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+    cookies: 
+      analytics: Google Analytics
+  analytics:
+    analytics: 
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+  disqus: https://https-vishalsingh17-github-io-ai-cookbook.disqus.com/admin/
+  homepage: https://squidfunk.github.io/mkdocs-material/
+
+# Extra JavaScript
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+  - https://www.mathjax.org/
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# Extensions
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - pymdownx.arithmatex
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - pymdownx.highlight
+  - tables
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - md_in_html
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.arithmatex:
+      generic: true
+
+# Plugins
+plugins:
+  - search
+  - glightbox
+
+# Copyright
+copyright: |
+  &copy; 2022 <a href="https://github.com/vishalsingh17/"  target="_blank" rel="noopener">Vishal Singh</a>

@@ -131,5 +131,26 @@ A regular DBMS has users with varying rights and permissions for different purpo
       logs or market rates to sophisticated users like business analysts.
    ```
 
-   ## Architecture
-   
+## Architecture
+
+The way a DBMS is designed depends on its architecture. It can be centralized, decentralized, or hierarchical. The architecture of a DBMS can be classified as either single-tier or multi-tier. In a multi-tier architecture, the entire system is divided into n modules that are related but independent. These modules can be modified, altered, changed, or replaced independently.
+
+### 1-tier architecture
+In a 1-tier architecture, the user interacts directly with the Database Management System (DBMS), making any changes directly to the DBMS itself. This setup lacks user-friendly tools for end-users, making it primarily favored by database designers and programmers.
+
+### 2-tier architecture
+Conversely, in a 2-tier architecture, an intermediary application is essential to access the DBMS. Programmers opt for this architecture to interact with the DBMS via an application. In this scenario, the application tier operates independently of the database, encompassing its operation, design, and programming aspects.
+
+### 3-tier architecture
+The 3-tier architecture introduces a tiered structure that separates components based on user complexity and data utilization patterns within the database. This separation enhances efficiency and scalability. It is worth noting that this architecture stands as the most prevalent and versatile choice when designing a Database Management System (DBMS).
+
+### Additional Points:
+
+- In 1-tier architecture, the DBMS and user interface are tightly integrated into a single system, which can be suitable for small-scale applications with minimal user interactions.
+
+- 2-tier architecture, also known as client-server architecture, enhances scalability and security by separating the user interface and application logic from the database.
+
+- In 3-tier architecture, the tiers consist of the presentation tier (user interface), application tier (business logic), and data tier (database). This separation facilitates better management, maintenance, and scalability.
+
+- 3-tier architecture supports multi-user environments, making it ideal for large-scale applications and enterprise-level systems.
+This architecture promotes modular design, allowing updates or changes in one tier without affecting the others, enhancing system flexibility.

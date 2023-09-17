@@ -172,3 +172,5 @@ In 3-Tier Architecture, there is another layer between the client and the server
 - Difficult to Interact: It becomes difficult for this sort of interaction to take place due to the presence of middle layers.
 
 ![3-tier architecture](./img/DBMS%203-Tier%20Architecture.png)
+
+###

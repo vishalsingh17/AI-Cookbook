@@ -136,21 +136,39 @@ A regular DBMS has users with varying rights and permissions for different purpo
 The way a DBMS is designed depends on its architecture. It can be centralized, decentralized, or hierarchical. The architecture of a DBMS can be classified as either single-tier or multi-tier. In a multi-tier architecture, the entire system is divided into n modules that are related but independent. These modules can be modified, altered, changed, or replaced independently.
 
 ### 1-tier architecture
-In a 1-tier architecture, the user interacts directly with the Database Management System (DBMS), making any changes directly to the DBMS itself. This setup lacks user-friendly tools for end-users, making it primarily favored by database designers and programmers.
+In 1-Tier Architecture the database is directly available to the user, the user can directly sit on the DBMS and use it that is, the client, server, and Database are all present on the same machine. For Example: to learn SQL we set up an SQL server and the database on the local system. This enables us to directly interact with the relational database and execute operations. The industry won’t use this architecture they logically go for 2-Tier and 3-Tier Architecture.
+
+#### Advantages of 1-tier architecture
+- Simple Architecture: 1-Tier Architecture is the most simple architecture to set up, as only a single machine is required to maintain it.
+- Cost-Effective: No additional hardware is required for implementing 1-Tier Architecture, which makes it cost-effective.
+- Easy to Implement: 1-Tier Architecture can be easily deployed, and hence it is mostly used in small projects. 
+
+![1-tier architecture](./img/DBMS-1-Tier-Architecture.webp)
 
 ### 2-tier architecture
-Conversely, in a 2-tier architecture, an intermediary application is essential to access the DBMS. Programmers opt for this architecture to interact with the DBMS via an application. In this scenario, the application tier operates independently of the database, encompassing its operation, design, and programming aspects.
+The 2-tier architecture is similar to a basic client-server model. The application at the client end directly communicates with the database on the server side. APIs like ODBC and JDBC are used for this interaction. The server side is responsible for providing query processing and transaction management functionalities. On the client side, the user interfaces and application programs are run. The application on the client side establishes a connection with the server side in order to communicate with the DBMS. 
+An advantage of this type is that maintenance and understanding are easier, and compatible with existing systems. However, this model gives poor performance when there are a large number of users. 
+
+#### Advantages of 2-tier architecture
+- Easy to Access: 2-Tier Architecture makes easy access to the database, which makes fast retrieval.
+- Scalable: We can scale the database easily, by adding clients or by upgrading hardware.
+- Low Cost: 2-Tier Architecture is cheaper than 3-Tier Architecture and Multi-Tier Architecture.
+- Easy Deployment: 2-Tier Architecture is easy to deploy than 3-Tier Architecture.
+- Simple: 2-Tier Architecture is easily understandable as well as simple because of only two components.
+
+![2-tier-architecture](./img/DBMS%202-Tier%20Architecture.png)
 
 ### 3-tier architecture
-The 3-tier architecture introduces a tiered structure that separates components based on user complexity and data utilization patterns within the database. This separation enhances efficiency and scalability. It is worth noting that this architecture stands as the most prevalent and versatile choice when designing a Database Management System (DBMS).
+In 3-Tier Architecture, there is another layer between the client and the server. The client does not directly communicate with the server. Instead, it interacts with an application server which further communicates with the database system and then the query processing and transaction management takes place. This intermediate layer acts as a medium for the exchange of partially processed data between the server and the client. This type of architecture is used in the case of large web applications. 
 
-### Additional Points:
+#### Advantages of 3-tier architecture
+- Enhanced scalability: Scalability is enhanced due to distributed deployment of application servers. Now, individual connections need not be made between the client and server.
+- Data Integrity: 3-Tier Architecture maintains Data Integrity. Since there is a middle layer between the client and the server, data corruption can be avoided/removed.
+- Security: 3-Tier Architecture Improves Security. This type of model prevents direct interaction of the client with the server thereby reducing access to unauthorized data.
 
-- In 1-tier architecture, the DBMS and user interface are tightly integrated into a single system, which can be suitable for small-scale applications with minimal user interactions.
+#### Disadvantages of 3-tier Architecture
 
-- 2-tier architecture, also known as client-server architecture, enhances scalability and security by separating the user interface and application logic from the database.
+- More Complex: 3-Tier Architecture is more complex in comparison to 2-Tier Architecture. Communication Points are also doubled in 3-Tier Architecture.
+- Difficult to Interact: It becomes difficult for this sort of interaction to take place due to the presence of middle layers.
 
-- In 3-tier architecture, the tiers consist of the presentation tier (user interface), application tier (business logic), and data tier (database). This separation facilitates better management, maintenance, and scalability.
-
-- 3-tier architecture supports multi-user environments, making it ideal for large-scale applications and enterprise-level systems.
-This architecture promotes modular design, allowing updates or changes in one tier without affecting the others, enhancing system flexibility.
+![3-tier architecture](./img/DBMS%203-Tier%20Architecture.png)

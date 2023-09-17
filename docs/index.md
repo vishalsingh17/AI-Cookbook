@@ -16,13 +16,13 @@ Here you will get detailed concept explanation of tech stack like <b>Data Scienc
 
 ## Table of Contents
 
-- [Python](Python/)
-- [DBMS](DBMS/)
-- [SQL](SQL/)
-- [Machine Learning](ML/)
-- [Deep Learning](DL/)
-- [MLOps](MLOps/)
-- [Big Data](BigData/)
-- [Data Analytics](DataAnalytics/)
-- [Research Papers](ResearchPapers/)
-- [Feedback](Feedback/)
+- [Python](./Python.md)
+- [DBMS](./DBMS.md)
+- [SQL](./SQL.md)
+- [Machine Learning](./ML.md)
+- [Deep Learning](./DL.md)
+- [MLOps](./MLOps.md)
+- [Big Data](./BigData.md)
+- [Data Analytics](./DataAnalytics.md)
+- [Research Papers](./ResearchPapers.md)
+- [Feedback](./Feedback.md)

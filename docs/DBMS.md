@@ -430,3 +430,21 @@ The end-user must not be able to see that the data is distributed over various l
 
 #### Rule 12: Non-Subversion Rule
 If a system has an interface that provides access to low-level records, then the interface must not be able to subvert the system and bypass security and integrity constraints.
+
+
+### Relational Data Model
+Relational data model is the primary data model, which is used widely around the world for data storage and processing. This model is simple and it has all the properties and capabilities required to process data with storage efficiency.
+
+#### Concepts
+- Tables − In relational data model, relations are saved in the format of Tables. This format stores the relation among entities. A table has rows and columns, where rows represents records and columns represent the attributes.
+
+- Tuple − A single row of a table, which contains a single record for that relation is called a tuple.
+
+- Relation instance − A finite set of tuples in the relational database system represents relation instance. Relation instances do not have duplicate tuples.
+
+- Relation schema − A relation schema describes the relation name (table name), attributes, and their names.
+
+- Relation key − Each row has one or more attributes, known as relation key, which can identify the row in the relation (table) uniquely.
+
+- Attribute domain − Every attribute has some pre-defined value scope, known as attribute domain.
+

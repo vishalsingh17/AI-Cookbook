@@ -559,3 +559,4 @@ ER specialization or generalization comes in the form of hierarchical entity set
 6. Declare foreign key constraints.
 ```
 
+### Database Normalization

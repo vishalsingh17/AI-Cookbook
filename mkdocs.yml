@@ -5,7 +5,7 @@ site_author: Vishal Singh
 
 # Page Tree
 nav:
-  # - Home: ./docs/index.md
+  - Home: index.md
   - Python: Python.md
   - DBMS: DBMS.md
   - SQL: SQL.md

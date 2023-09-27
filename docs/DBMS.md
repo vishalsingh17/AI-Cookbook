@@ -448,3 +448,114 @@ Relational data model is the primary data model, which is used widely around the
 
 - Attribute domain − Every attribute has some pre-defined value scope, known as attribute domain.
 
+#### Constraints
+Every relation has some conditions that must hold for it to be a valid relation. These conditions are called Relational Integrity Constraints. There are three main integrity constraints −
+```
+1. Key constraints
+
+2. Domain constraints
+
+3. Referential integrity constraints
+```
+
+##### Key Constraints
+
+There must be at least one minimal subset of attributes in the relation, which can identify a tuple uniquely. This minimal subset of attributes is called key for that relation. If there are more than one such minimal subsets, these are called candidate keys.
+
+Key constraints force that −
+
+- in a relation with a key attribute, no two tuples can have identical values for key attributes.
+
+- a key attribute can not have NULL values.
+
+Key constraints are also referred to as Entity Constraints.
+
+##### Domain Constraints
+
+Attributes have specific values in real-world scenario. For example, age can only be a positive integer. The same constraints have been tried to employ on the attributes of a relation. Every attribute is bound to have a specific range of values. For example, age cannot be less than zero and telephone numbers cannot contain a digit outside 0-9.
+
+##### Referential integrity Constraints
+
+Referential integrity constraints work on the concept of Foreign Keys. A foreign key is a key attribute of a relation that can be referred in other relation.
+
+Referential integrity constraint states that if a relation refers to a key attribute of a different or same relation, then that key element must exist.
+
+### ER Model to Relational Model
+ER Model, when conceptualized into diagrams, gives a good overview of entity-relationship, which is easier to understand. ER diagrams can be mapped to relational schema, that is, it is possible to create relational schema using ER diagram. We cannot import all the ER constraints into relational model, but an approximate schema can be generated.
+
+There are several processes and algorithms available to convert ER Diagrams into Relational Schema. Some of them are automated and some of them are manual. We may focus here on the mapping diagram contents to relational basics.
+
+ER diagrams mainly comprise of 
+```
+1. Entity and its attributes
+2. Relationship, which is association among entities.
+```
+
+#### Mapping Entity
+An entity is a real-world object with some attributes.
+
+![entity-mapping](./img/mapping_entities.png)
+
+##### Mapping Process (Algorithm)
+```
+1. Create table for each entity.
+
+2. Entity's attributes should become fields of tables with their respective data types.
+
+3. Declare primary key.
+```
+
+#### Mapping Relationship
+A relationship is an association among entities.
+
+![mapping_relationship](./img/mapping_relationship.png)
+
+##### Mapping Process
+```
+1. Create table for a relationship.
+
+2. Add the primary keys of all participating Entities as fields of table with their respective data types.
+
+3. If relationship has any attribute, add each attribute as field of table.
+
+4. Declare a primary key composing all the primary keys of participating entities.
+
+5. Declare all foreign key constraints.
+```
+
+#### Mapping Weak Entity Sets
+A weak entity set is one which does not have any primary key associated with it.
+
+![mapping_weak_entity_sets](./img/mapping_weak_entity_sets.png)
+
+##### Mapping Process
+```
+1. Create table for weak entity set.
+
+2. Add all its attributes to table as field.
+
+3. Add the primary key of identifying entity set.
+
+4. Declare all foreign key constraints.
+```
+
+#### Mapping Hierarchical Entities
+ER specialization or generalization comes in the form of hierarchical entity sets.
+
+![inheritance (1)](./img/inheritance%20(1).png)
+
+##### Mapping Process
+```
+1. Create tables for all higher-level entities.
+
+2. Create tables for lower-level entities.
+
+3. Add primary keys of higher-level entities in the table of lower-level entities.
+
+4. In lower-level tables, add all other attributes of lower-level entities.
+
+5. Declare primary key of higher-level table and the primary key for lower-level table.
+
+6. Declare foreign key constraints.
+```
+

@@ -1,0 +1,2032 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Everything you need for your AI journey..">
+      
+      
+        <meta name="author" content="Vishal Singh">
+      
+      
+        <link rel="canonical" href="https://vishalsingh17.github.io/AI-Cookbook/DBMS/">
+      
+      
+        <link rel="prev" href="../Python/">
+      
+      
+        <link rel="next" href="../MySQL/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.2">
+    
+    
+      
+        <title>DBMS - AI Cookbook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.d451bc0e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a5377069.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#home" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://squidfunk.github.io/mkdocs-material/" title="AI Cookbook" class="md-header__button md-logo" aria-label="AI Cookbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI Cookbook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DBMS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/vishalsingh17/AI-Cookbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AI Cookbook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Python/" class="md-tabs__link">
+        
+  
+    
+  
+  Python
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  DBMS
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../MySQL/" class="md-tabs__link">
+        
+  
+    
+  
+  MySQL
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ML/" class="md-tabs__link">
+        
+  
+    
+  
+  Machine Learning
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../DL/" class="md-tabs__link">
+        
+  
+    
+  
+  Deep Learning
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../MLOps/" class="md-tabs__link">
+        
+  
+    
+  
+  MLOps
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../BigData/" class="md-tabs__link">
+        
+  
+    
+  
+  Big Data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../DataAnalytics/" class="md-tabs__link">
+        
+  
+    
+  
+  Data Analytics
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ResearchPapers/" class="md-tabs__link">
+        
+  
+    
+  
+  Research Papers
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Feedback.md" class="md-tabs__link">
+        
+  
+    
+  
+  Feedback
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://squidfunk.github.io/mkdocs-material/" title="AI Cookbook" class="md-nav__button md-logo" aria-label="AI Cookbook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AI Cookbook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/vishalsingh17/AI-Cookbook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AI Cookbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    DBMS
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    DBMS
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#home" class="md-nav__link">
+    Home
+  </a>
+  
+    <nav class="md-nav" aria-label="Home">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-learn-dbms" class="md-nav__link">
+    Why Learn DBMS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications-of-dbms" class="md-nav__link">
+    Applications of DBMS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristics" class="md-nav__link">
+    Characteristics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#users" class="md-nav__link">
+    Users
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    Architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tier-architecture" class="md-nav__link">
+    1-tier architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="1-tier architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-1-tier-architecture" class="md-nav__link">
+    Advantages of 1-tier architecture
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tier-architecture" class="md-nav__link">
+    2-tier architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="2-tier architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-2-tier-architecture" class="md-nav__link">
+    Advantages of 2-tier architecture
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tier-architecture" class="md-nav__link">
+    3-tier architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="3-tier architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-3-tier-architecture" class="md-nav__link">
+    Advantages of 3-tier architecture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages-of-3-tier-architecture" class="md-nav__link">
+    Disadvantages of 3-tier Architecture
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-models" class="md-nav__link">
+    Data Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entity-relationship-model" class="md-nav__link">
+    Entity Relationship Model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relational-model" class="md-nav__link">
+    Relational Model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-schemas" class="md-nav__link">
+    Data Schemas
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Schemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database-instance" class="md-nav__link">
+    Database Instance
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-independence" class="md-nav__link">
+    Data Independence
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Independence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logical-data-independence" class="md-nav__link">
+    Logical Data Independence
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-data-independence" class="md-nav__link">
+    Physical Data Independence
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entity-relationship-model_1" class="md-nav__link">
+    Entity Relationship Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Entity Relationship Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entity" class="md-nav__link">
+    Entity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-attributes" class="md-nav__link">
+    Types of Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entity-set-and-keys" class="md-nav__link">
+    Entity-Set and Keys
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship" class="md-nav__link">
+    Relationship
+  </a>
+  
+    <nav class="md-nav" aria-label="Relationship">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relationship-set" class="md-nav__link">
+    Relationship Set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#degree-of-relationship" class="md-nav__link">
+    Degree of Relationship
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-cardinalities" class="md-nav__link">
+    Mapping Cardinalities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#er-diagram-representation" class="md-nav__link">
+    ER Diagram Representation
+  </a>
+  
+    <nav class="md-nav" aria-label="ER Diagram Representation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entity_1" class="md-nav__link">
+    Entity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributes_1" class="md-nav__link">
+    Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship_1" class="md-nav__link">
+    Relationship
+  </a>
+  
+    <nav class="md-nav" aria-label="Relationship">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary-relationship-and-cardinality" class="md-nav__link">
+    Binary Relationship and Cardinality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#participation-constraints" class="md-nav__link">
+    Participation Constraints
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generalization-and-specialization" class="md-nav__link">
+    Generalization and Specialization
+  </a>
+  
+    <nav class="md-nav" aria-label="Generalization and Specialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generalization" class="md-nav__link">
+    Generalization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specialization" class="md-nav__link">
+    Specialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    Inheritance
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codds-12-rule" class="md-nav__link">
+    Codd's 12 Rule
+  </a>
+  
+    <nav class="md-nav" aria-label="Codd's 12 Rule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule-1-information-rule" class="md-nav__link">
+    Rule 1: Information Rule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-2-guaranteed-access-rule" class="md-nav__link">
+    Rule 2: Guaranteed Access Rule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-3-systematic-treatment-of-null-values" class="md-nav__link">
+    Rule 3: Systematic Treatment of NULL Values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-4-active-online-catalog" class="md-nav__link">
+    Rule 4: Active Online Catalog
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-5-comprehensive-data-sub-language-rule" class="md-nav__link">
+    Rule 5: Comprehensive Data Sub-Language Rule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-6-view-updating-rule" class="md-nav__link">
+    Rule 6: View Updating Rule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-7-high-level-insert-update-and-delete-rule" class="md-nav__link">
+    Rule 7: High-Level Insert, Update, and Delete Rule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-8-physical-data-independence" class="md-nav__link">
+    Rule 8: Physical Data Independence
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-9-logical-data-independence" class="md-nav__link">
+    Rule 9: Logical Data Independence
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-10-integrity-independence" class="md-nav__link">
+    Rule 10: Integrity Independence
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-11-distribution-independence" class="md-nav__link">
+    Rule 11: Distribution Independence
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-12-non-subversion-rule" class="md-nav__link">
+    Rule 12: Non-Subversion Rule
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relational-data-model" class="md-nav__link">
+    Relational Data Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Relational Data Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    Concepts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    Constraints
+  </a>
+  
+    <nav class="md-nav" aria-label="Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-constraints" class="md-nav__link">
+    Key Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#domain-constraints" class="md-nav__link">
+    Domain Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referential-integrity-constraints" class="md-nav__link">
+    Referential integrity Constraints
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#er-model-to-relational-model" class="md-nav__link">
+    ER Model to Relational Model
+  </a>
+  
+    <nav class="md-nav" aria-label="ER Model to Relational Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping-entity" class="md-nav__link">
+    Mapping Entity
+  </a>
+  
+    <nav class="md-nav" aria-label="Mapping Entity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping-process-algorithm" class="md-nav__link">
+    Mapping Process (Algorithm)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-relationship" class="md-nav__link">
+    Mapping Relationship
+  </a>
+  
+    <nav class="md-nav" aria-label="Mapping Relationship">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping-process" class="md-nav__link">
+    Mapping Process
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-weak-entity-sets" class="md-nav__link">
+    Mapping Weak Entity Sets
+  </a>
+  
+    <nav class="md-nav" aria-label="Mapping Weak Entity Sets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping-process_1" class="md-nav__link">
+    Mapping Process
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-hierarchical-entities" class="md-nav__link">
+    Mapping Hierarchical Entities
+  </a>
+  
+    <nav class="md-nav" aria-label="Mapping Hierarchical Entities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapping-process_2" class="md-nav__link">
+    Mapping Process
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-normalization" class="md-nav__link">
+    Database Normalization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MySQL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MySQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ML/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deep Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MLOps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MLOps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BigData/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Big Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DataAnalytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Analytics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ResearchPapers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Research Papers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Feedback.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Feedback
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>DBMS</h1>
+
+<h2 id="home">Home</h2>
+<p>Database Management System or DBMS refers to the technology of sorting, filtering and retrieving the data with utmost efficiency along with appropriate safety measures. </p>
+<h3 id="why-learn-dbms">Why Learn DBMS</h3>
+<p>Traditionally data was organized in file formats. DBMS was a new concept then, and all the research was done to make it overcome the deficiencies of the traditional standard of data management. A modern DBMS has the following characteristics:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1. Real World Entity - A modern DBMS is more realistic and uses real-world entities to design it&#39;s architecture. 
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   It uses the behavior and attributes too. For example, a school database may use students as an entity and 
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   their age as an attribute.
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>2. Relation Based Tables - DBMS allows entities and relations among them to form tables. A user can understand 
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>   the architecture of a database just by looking at the table name and attributes.
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>3. Isolation of data and application - A database system is entirely different than its data. A database is an 
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>   active entity, whereas data is said to be passive, on which the database works and organizes. DBMS also 
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>   stores metadata, which is data about data, to ease its own process.
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>4. Less Redundancy - DBMS follows the rules of normalization, which splits a relation when any of its attributes
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>   is having redundancy in values. Normalization is a mathematically rich and scientific process that reduces 
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>   data redundancy.
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>5. Consistency - Consistency is a state where every relation in a database remains consistent. There exist 
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>   methods and techniques, which can detect attempt of leaving database in inconsistent state. A DBMS can provide 
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>   greater consistency as compared to earlier forms of data storing applications like file-processing systems.
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>6. Query Language - DBMS is equipped with query language, which makes it more efficient to retrieve and 
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>   manipulate data. A user can apply as many and as different filtering options as required to retrieve a set 
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>   of data. Traditionally it was not possible where file-processing system was used.
+</code></pre></div></p>
+<h3 id="applications-of-dbms">Applications of DBMS</h3>
+<p>Database is a collection of related data and data is a collection of facts and figures that can be processed to produce information.</p>
+<p>Mostly data represents recordable facts. Data aids in producing information, which is based on facts. For example, if we have data about marks obtained by all students, we can then conclude about toppers and average marks.</p>
+<p>A database management system stores data in such a way that it becomes easier to retrieve, manipulate, and produce information. Following are the important characteristics and applications of DBMS.</p>
+<div class="highlight"><pre><span></span><code>1. ACID Properties − DBMS follows the concepts of Atomicity, Consistency, Isolation, and Durability (normally 
+   shortened as ACID). These concepts are applied on transactions, which manipulate data in a database. ACID 
+   properties help the database stay healthy in multi-transactional environments and in case of failure.
+
+2. Multiuser and Concurrent Access − DBMS supports multi-user environment and allows them to access and 
+   manipulate data in parallel. Though there are restrictions on transactions when users attempt to handle 
+   the same data item, but users are always unaware of them.
+
+3. Multiple views − DBMS offers multiple views for different users. A user who is in the Sales department will
+   have a different view of database than a person working in the Production department. This feature enables 
+   the users to have a concentrate view of the database according to their requirements.
+
+4. Security − Features like multiple views offer security to some extent where users are unable to access data 
+   of other users and departments. DBMS offers methods to impose constraints while entering data into the 
+   database and retrieving the same at a later stage. DBMS offers many different levels of security features, 
+   which enables multiple users to have different views with different features. For example, a user in the 
+   Sales department cannot see the data that belongs to the Purchase department. Additionally, it can also be 
+   managed how much data of the Sales department should be displayed to the user. Since a DBMS is not saved on 
+   the disk as traditional file systems, it is very hard for miscreants to break the code.
+</code></pre></div>
+<h2 id="overview">Overview</h2>
+<p>Database is a collection of related data and data is a collection of facts and figures that can be processed to produce information.</p>
+<p>Mostly data represents recordable facts. Data aids in producing information, which is based on facts. For example, if we have data about marks obtained by all students, we can then conclude about toppers and average marks.</p>
+<p>A database management system stores data in such a way that it becomes easier to retrieve, manipulate, and produce information.</p>
+<h3 id="characteristics">Characteristics</h3>
+<p>Traditionally, data was organized in file formats. DBMS was a new concept then, and all the research was done to make it overcome the deficiencies in traditional style of data management. A modern DBMS has the following characteristics.</p>
+<div class="highlight"><pre><span></span><code>1. Real World Entity - A modern DBMS is more realistic and uses real-world entities to design it&#39;s architecture. 
+   It uses the behavior and attributes too. For example, a school database may use students as an entity and 
+   their age as an attribute.
+
+2. Relation Based Tables - DBMS allows entities and relations among them to form tables. A user can understand 
+   the architecture of a database just by looking at the table name and attributes.
+
+3. Isolation of data and application - A database system is entirely different than its data. A database is an 
+   active entity, whereas data is said to be passive, on which the database works and organizes. DBMS also 
+   stores metadata, which is data about data, to ease its own process.
+
+4. Less Redundancy - DBMS follows the rules of normalization, which splits a relation when any of its attributes
+   is having redundancy in values. Normalization is a mathematically rich and scientific process that reduces 
+   data redundancy.
+
+5. Consistency - Consistency is a state where every relation in a database remains consistent. There exist 
+   methods and techniques, which can detect attempt of leaving database in inconsistent state. A DBMS can provide 
+   greater consistency as compared to earlier forms of data storing applications like file-processing systems.
+
+6. Query Language - DBMS is equipped with query language, which makes it more efficient to retrieve and 
+   manipulate data. A user can apply as many and as different filtering options as required to retrieve a set 
+   of data. Traditionally it was not possible where file-processing system was used.
+
+7. ACID Properties − DBMS follows the concepts of Atomicity, Consistency, Isolation, and Durability (normally 
+   shortened as ACID). These concepts are applied on transactions, which manipulate data in a database. ACID 
+   properties help the database stay healthy in multi-transactional environments and in case of failure.
+
+8. Multiuser and Concurrent Access − DBMS supports multi-user environment and allows them to access and 
+   manipulate data in parallel. Though there are restrictions on transactions when users attempt to handle 
+   the same data item, but users are always unaware of them.
+
+9. Multiple views − DBMS offers multiple views for different users. A user who is in the Sales department will
+   have a different view of database than a person working in the Production department. This feature enables 
+   the users to have a concentrate view of the database according to their requirements.
+
+10. Security − Features like multiple views offer security to some extent where users are unable to access data 
+   of other users and departments. DBMS offers methods to impose constraints while entering data into the 
+   database and retrieving the same at a later stage. DBMS offers many different levels of security features, 
+   which enables multiple users to have different views with different features. For example, a user in the 
+   Sales department cannot see the data that belongs to the Purchase department. Additionally, it can also be 
+   managed how much data of the Sales department should be displayed to the user. Since a DBMS is not saved on 
+   the disk as traditional file systems, it is very hard for miscreants to break the code.
+</code></pre></div>
+<h3 id="users">Users</h3>
+<p>A regular DBMS has users with varying rights and permissions for different purposes. Some users retrieve data, while others perform data backups. The users of a DBMS can generally be classified as follows:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. Administrators - Administrators maintain the DBMS and have the responsibility of managing the database. They 
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>   oversee its usage and determine who can access it. They create user profiles and enforce restrictions to ensure 
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>   security and isolation. Administrators also handle DBMS resources like system licenses, necessary tools, and 
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>   maintenance of software and hardware.
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>2. Designers are the individuals who focus on the design aspects of the database. They carefully consider what 
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>   data needs to be stored and in what format. They identify and design the complete set of entities, relationships, 
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>   constraints, and views.
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>3. End users are the ones who directly benefit from having a DBMS. They can range from casual observers who review 
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>   logs or market rates to sophisticated users like business analysts.
+</code></pre></div></p>
+<h2 id="architecture">Architecture</h2>
+<p>The way a DBMS is designed depends on its architecture. It can be centralized, decentralized, or hierarchical. The architecture of a DBMS can be classified as either single-tier or multi-tier. In a multi-tier architecture, the entire system is divided into n modules that are related but independent. These modules can be modified, altered, changed, or replaced independently.</p>
+<h3 id="1-tier-architecture">1-tier architecture</h3>
+<p>In 1-Tier Architecture the database is directly available to the user, the user can directly sit on the DBMS and use it that is, the client, server, and Database are all present on the same machine. For Example: to learn SQL we set up an SQL server and the database on the local system. This enables us to directly interact with the relational database and execute operations. The industry won’t use this architecture they logically go for 2-Tier and 3-Tier Architecture.</p>
+<h4 id="advantages-of-1-tier-architecture">Advantages of 1-tier architecture</h4>
+<ul>
+<li>Simple Architecture: 1-Tier Architecture is the most simple architecture to set up, as only a single machine is required to maintain it.</li>
+<li>Cost-Effective: No additional hardware is required for implementing 1-Tier Architecture, which makes it cost-effective.</li>
+<li>Easy to Implement: 1-Tier Architecture can be easily deployed, and hence it is mostly used in small projects. </li>
+</ul>
+<p><a class="glightbox" href="../img/DBMS-1-Tier-Architecture.webp" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="1-tier architecture" src="../img/DBMS-1-Tier-Architecture.webp" /></a></p>
+<h3 id="2-tier-architecture">2-tier architecture</h3>
+<p>The 2-tier architecture is similar to a basic client-server model. The application at the client end directly communicates with the database on the server side. APIs like ODBC and JDBC are used for this interaction. The server side is responsible for providing query processing and transaction management functionalities. On the client side, the user interfaces and application programs are run. The application on the client side establishes a connection with the server side in order to communicate with the DBMS. 
+An advantage of this type is that maintenance and understanding are easier, and compatible with existing systems. However, this model gives poor performance when there are a large number of users. </p>
+<h4 id="advantages-of-2-tier-architecture">Advantages of 2-tier architecture</h4>
+<ul>
+<li>Easy to Access: 2-Tier Architecture makes easy access to the database, which makes fast retrieval.</li>
+<li>Scalable: We can scale the database easily, by adding clients or by upgrading hardware.</li>
+<li>Low Cost: 2-Tier Architecture is cheaper than 3-Tier Architecture and Multi-Tier Architecture.</li>
+<li>Easy Deployment: 2-Tier Architecture is easy to deploy than 3-Tier Architecture.</li>
+<li>Simple: 2-Tier Architecture is easily understandable as well as simple because of only two components.</li>
+</ul>
+<p><a class="glightbox" href="../img/DBMS%202-Tier%20Architecture.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2-tier-architecture" src="../img/DBMS%202-Tier%20Architecture.png" /></a></p>
+<h3 id="3-tier-architecture">3-tier architecture</h3>
+<p>In 3-Tier Architecture, there is another layer between the client and the server. The client does not directly communicate with the server. Instead, it interacts with an application server which further communicates with the database system and then the query processing and transaction management takes place. This intermediate layer acts as a medium for the exchange of partially processed data between the server and the client. This type of architecture is used in the case of large web applications. </p>
+<h4 id="advantages-of-3-tier-architecture">Advantages of 3-tier architecture</h4>
+<ul>
+<li>Enhanced scalability: Scalability is enhanced due to distributed deployment of application servers. Now, individual connections need not be made between the client and server.</li>
+<li>Data Integrity: 3-Tier Architecture maintains Data Integrity. Since there is a middle layer between the client and the server, data corruption can be avoided/removed.</li>
+<li>Security: 3-Tier Architecture Improves Security. This type of model prevents direct interaction of the client with the server thereby reducing access to unauthorized data.</li>
+</ul>
+<h4 id="disadvantages-of-3-tier-architecture">Disadvantages of 3-tier Architecture</h4>
+<ul>
+<li>More Complex: 3-Tier Architecture is more complex in comparison to 2-Tier Architecture. Communication Points are also doubled in 3-Tier Architecture.</li>
+<li>Difficult to Interact: It becomes difficult for this sort of interaction to take place due to the presence of middle layers.</li>
+</ul>
+<p><a class="glightbox" href="../img/DBMS%203-Tier%20Architecture.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="3-tier architecture" src="../img/DBMS%203-Tier%20Architecture.png" /></a></p>
+<h3 id="data-models">Data Models</h3>
+<p>Data models define how the logical structure of a database is modeled. Data Models are fundamental entities to introduce abstraction in a DBMS. Data models define how data is connected to each other and how they are processed and stored inside the system.</p>
+<p>The very first data model could be flat data-models, where all the data used are to be kept in the same plane. Earlier data models were not so scientific, hence they were prone to introduce lots of duplication and update anomalies.</p>
+<h4 id="entity-relationship-model">Entity Relationship Model</h4>
+<p>Entity-Relationship (ER) Model is based on the notion of real-world entities and relationships among them. While formulating real-world scenario into the database model, the ER Model creates entity set, relationship set, general attributes and constraints.</p>
+<p>ER Model is best used for the conceptual design of a database.</p>
+<p>ER Model is based on:</p>
+<ul>
+<li>
+<p>Entity − An entity in an ER Model is a real-world entity having properties called attributes. Every attribute is defined by its set of values called domain. For example, in a school database, a student is considered as an entity. Student has various attributes like name, age, class, etc.</p>
+</li>
+<li>
+<p>Relationship − The logical association among entities is called relationship. Relationships are mapped with entities in various ways. Mapping cardinalities define the number of association between two entities.</p>
+</li>
+</ul>
+<p>Mapping cardinalities:</p>
+<ul>
+<li>one to one</li>
+<li>one to many</li>
+<li>many to one</li>
+<li>many to many</li>
+</ul>
+<p><a class="glightbox" href="../img/er_model.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="ER Diagram" src="../img/er_model.png" /></a></p>
+<h4 id="relational-model">Relational Model</h4>
+<p>The most popular data model in DBMS is the Relational Model. It is more scientific a model than others. This model is based on first-order predicate logic and defines a table as an n-ary relation. The main highlights of this model are:
+- Data is stored in tables called relations.
+- Relations can be normalized.
+- In normalized relations, values saved are atomic values.
+- Each row in a relation contains a unique value.
+- Each column in a relation contains values from a same domain.</p>
+<p><a class="glightbox" href="../img/relational_model_table.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Relational Model" src="../img/relational_model_table.png" /></a></p>
+<h3 id="data-schemas">Data Schemas</h3>
+<p>A database schema is the skeleton structure that represents the logical view of the entire database. It defines how the data is organized and how the relations among them are associated. It formulates all the constraints that are to be applied on the data.</p>
+<p>A database schema defines its entities and the relationship among them. It contains a descriptive detail of the database, which can be depicted by means of schema diagrams. It’s the database designers who design the schema to help programmers understand the database and make it useful.</p>
+<p><a class="glightbox" href="../img/dbms_schemas.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="DBMS Schemas" src="../img/dbms_schemas.png" /></a></p>
+<p>A database schema can be divided broadly into two categories:
+- Physical Database Schema − This schema pertains to the actual storage of data and its form of storage like files, indices, etc. It defines how the data will be stored in a secondary storage.
+- Logical Database Schema − This schema defines all the logical constraints that need to be applied on the data stored. It defines tables, views, and integrity constraints.</p>
+<h4 id="database-instance">Database Instance</h4>
+<p>It is important that we distinguish these two terms individually. Database schema is the skeleton of database. It is designed when the database doesn't exist at all. Once the database is operational, it is very difficult to make any changes to it. A database schema does not contain any data or information.</p>
+<p>A database instance is a state of operational database with data at any given time. It contains a snapshot of the database. Database instances tend to change with time. A DBMS ensures that its every instance (state) is in a valid state, by diligently following all the validations, constraints, and conditions that the database designers have imposed.</p>
+<h3 id="data-independence">Data Independence</h3>
+<p>A database system normally contains a lot of data in addition to users’ data. For example, it stores data about data, known as metadata, to locate and retrieve data easily. It is rather difficult to modify or update a set of metadata once it is stored in the database. But as a DBMS expands, it needs to change over time to satisfy the requirements of the users. If the entire data is dependent, it would become a tedious and highly complex job.</p>
+<p>Metadata itself follows a layered architecture, so that when we change data at one layer, it does not affect the data at another level. This data is independent but mapped to each other.</p>
+<p><a class="glightbox" href="../img/data_independence.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Data Independence" src="../img/data_independence.png" /></a></p>
+<h4 id="logical-data-independence">Logical Data Independence</h4>
+<p>Logical data is data about database, that is, it stores information about how data is managed inside. For example, a table (relation) stored in the database and all its constraints, applied on that relation.</p>
+<p>Logical data independence is a kind of mechanism, which liberalizes itself from actual data stored on the disk. If we do some changes on table format, it should not change the data residing on the disk.</p>
+<h4 id="physical-data-independence">Physical Data Independence</h4>
+<p>All the schemas are logical, and the actual data is stored in bit format on the disk. Physical data independence is the power to change the physical data without impacting the schema or logical data.</p>
+<p>For example, in case we want to change or upgrade the storage system itself − suppose we want to replace hard-disks with SSD − it should not have any impact on the logical data or schemas.</p>
+<h3 id="entity-relationship-model_1">Entity Relationship Model</h3>
+<p>The ER model defines the conceptual view of a database. It works around real-world entities and the associations among them. At view level, the ER model is considered a good option for designing databases.</p>
+<h4 id="entity">Entity</h4>
+<p>An entity can be a real-world object, either animate or inanimate, that can be easily identifiable. For example, in a school database, students, teachers, classes, and courses offered can be considered as entities. All these entities have some attributes or properties that give them their identity.</p>
+<p>An entity set is a collection of similar types of entities. An entity set may contain entities with attribute sharing similar values. For example, a Students set may contain all the students of a school; likewise a Teachers set may contain all the teachers of a school from all faculties. Entity sets need not be disjoint.</p>
+<h4 id="attributes">Attributes</h4>
+<p>Entities are represented by means of their properties, called attributes. All attributes have values. For example, a student entity may have name, class, and age as attributes.</p>
+<p>There exists a domain or range of values that can be assigned to attributes. For example, a student's name cannot be a numeric value. It has to be alphabetic. A student's age cannot be negative, etc.</p>
+<h5 id="types-of-attributes">Types of Attributes</h5>
+<ul>
+<li>
+<p>Simple attribute − Simple attributes are atomic values, which cannot be divided further. For example, a student's phone number is an atomic value of 10 digits.</p>
+</li>
+<li>
+<p>Composite attribute − Composite attributes are made of more than one simple attribute. For example, a student's complete name may have first_name and last_name.</p>
+</li>
+<li>
+<p>Derived attribute − Derived attributes are the attributes that do not exist in the physical database, but their values are derived from other attributes present in the database. For example, average_salary in a department should not be saved directly in the database, instead it can be derived. For another example, age can be derived from data_of_birth.</p>
+</li>
+<li>
+<p>Single-value attribute − Single-value attributes contain single value. For example − Social_Security_Number.</p>
+</li>
+<li>
+<p>Multi-value attribute − Multi-value attributes may contain more than one values. For example, a person can have more than one phone number, email_address, etc.</p>
+</li>
+</ul>
+<h5 id="entity-set-and-keys">Entity-Set and Keys</h5>
+<p>Key is an attribute or collection of attributes that uniquely identifies an entity among entity set.</p>
+<p>For example, the roll_number of a student makes him/her identifiable among students.</p>
+<ul>
+<li>
+<p>Super Key − A set of attributes (one or more) that collectively identifies an entity in an entity set.</p>
+</li>
+<li>
+<p>Candidate Key − A minimal super key is called a candidate key. An entity set may have more than one candidate key.</p>
+</li>
+<li>
+<p>Primary Key − A primary key is one of the candidate keys chosen by the database designer to uniquely identify the entity set.</p>
+</li>
+</ul>
+<h3 id="relationship">Relationship</h3>
+<p>The association among entities is called a relationship. For example, an employee works_at a department, a student enrolls in a course. Here, Works_at and Enrolls are called relationships.</p>
+<h4 id="relationship-set">Relationship Set</h4>
+<p>A set of relationships of similar type is called a relationship set. Like entities, a relationship too can have attributes. These attributes are called descriptive attributes.</p>
+<h4 id="degree-of-relationship">Degree of Relationship</h4>
+<p>The number of participating entities in a relationship defines the degree of the relationship.</p>
+<ul>
+<li>Binary = degree 2</li>
+<li>Ternary = degree 3</li>
+<li>n-ary = degree</li>
+</ul>
+<h4 id="mapping-cardinalities">Mapping Cardinalities</h4>
+<p>Cardinality defines the number of entities in one entity set, which can be associated with the number of entities of other set via relationship set.</p>
+<p>One-to-one − One entity from entity set A can be associated with at most one entity of entity set B and vice versa.</p>
+<p><a class="glightbox" href="../img/one_to_one_relation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="One-to-one relation" src="../img/one_to_one_relation.png" /></a></p>
+<p>One-to-many − One entity from entity set A can be associated with more than one entities of entity set B however an entity from entity set B, can be associated with at most one entity.</p>
+<p><a class="glightbox" href="../img/one_to_many_relation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="One-to-many relation" src="../img/one_to_many_relation.png" /></a></p>
+<p>Many-to-one − More than one entities from entity set A can be associated with at most one entity of entity set B, however an entity from entity set B can be associated with more than one entity from entity set A.</p>
+<p><a class="glightbox" href="../img/many_to_one_relation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Many-to-one relation" src="../img/many_to_one_relation.png" /></a></p>
+<p>Many-to-many − One entity from A can be associated with more than one entity from B and vice versa.</p>
+<p><a class="glightbox" href="../img/many_to_many_relation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Many-to-many relation" src="../img/many_to_many_relation.png" /></a></p>
+<h3 id="er-diagram-representation">ER Diagram Representation</h3>
+<p>Let us now learn how the ER Model is represented by means of an ER diagram. Any object, for example, entities, attributes of an entity, relationship sets, and attributes of relationship sets, can be represented with the help of an ER diagram.</p>
+<h4 id="entity_1">Entity</h4>
+<p>Entities are represented by means of rectangles. Rectangles are named with the entity set they represent.</p>
+<p><a class="glightbox" href="../img/entities.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Entity" src="../img/entities.png" /></a></p>
+<h4 id="attributes_1">Attributes</h4>
+<p>Attributes are the properties of entities. Attributes are represented by means of ellipses. Every ellipse represents one attribute and is directly connected to its entity (rectangle).</p>
+<p><a class="glightbox" href="../img/er_attributes.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Attributes" src="../img/er_attributes.png" /></a></p>
+<p>If the attributes are composite, they are further divided in a tree like structure. Every node is then connected to its attribute. That is, composite attributes are represented by ellipses that are connected with an ellipse.</p>
+<p><a class="glightbox" href="../img/er_attributes_composite.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Composite Attributes" src="../img/er_attributes_composite.png" /></a></p>
+<p>Multivalued attributes are depicted by double ellipse.</p>
+<p><a class="glightbox" href="../img/er_attributes_multivalued.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Multivalued Attributes" src="../img/er_attributes_multivalued.png" /></a></p>
+<p>Derived attributes are depicted by dashed ellipse.</p>
+<p><a class="glightbox" href="../img/er_attributes_derived.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Derived Attributes" src="../img/er_attributes_derived.png" /></a></p>
+<h4 id="relationship_1">Relationship</h4>
+<p>Relationships are represented by diamond-shaped box. Name of the relationship is written inside the diamond-box. All the entities (rectangles) participating in a relationship, are connected to it by a line.</p>
+<h5 id="binary-relationship-and-cardinality">Binary Relationship and Cardinality</h5>
+<p>A relationship where two entities are participating is called a binary relationship. Cardinality is the number of instance of an entity from a relation that can be associated with the relation.</p>
+<ul>
+<li>One-to-one − When only one instance of an entity is associated with the relationship, it is marked as '1:1'. The following image reflects that only one instance of each entity should be associated with the relationship. It depicts one-to-one relationship.</li>
+</ul>
+<p><a class="glightbox" href="../img/er_relation_one_to_one.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="er_relation_one_to_one" src="../img/er_relation_one_to_one.png" /></a></p>
+<ul>
+<li>One-to-many − When more than one instance of an entity is associated with a relationship, it is marked as '1:N'. The following image reflects that only one instance of entity on the left and more than one instance of an entity on the right can be associated with the relationship. It depicts one-to-many relationship.</li>
+</ul>
+<p><a class="glightbox" href="../img/er_relation_one_to_many.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="er_relation_one_to_many" src="../img/er_relation_one_to_many.png" /></a></p>
+<ul>
+<li>Many-to-one − When more than one instance of entity is associated with the relationship, it is marked as 'N:1'. The following image reflects that more than one instance of an entity on the left and only one instance of an entity on the right can be associated with the relationship. It depicts many-to-one relationship.</li>
+</ul>
+<p><a class="glightbox" href="../img/er_relation_many_to_one.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="er_relation_many_to_one" src="../img/er_relation_many_to_one.png" /></a></p>
+<ul>
+<li>Many-to-many − The following image reflects that more than one instance of an entity on the left and more than one instance of an entity on the right can be associated with the relationship. It depicts many-to-many relationship.</li>
+</ul>
+<p><a class="glightbox" href="../img/er_relation_many_to_many.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="er_relation_many_to_many" src="../img/er_relation_many_to_many.png" /></a></p>
+<h5 id="participation-constraints">Participation Constraints</h5>
+<ul>
+<li>
+<p>Total Participation − Each entity is involved in the relationship. Total participation is represented by double lines.</p>
+</li>
+<li>
+<p>Partial participation − Not all entities are involved in the relationship. Partial participation is represented by single lines.</p>
+</li>
+</ul>
+<p><a class="glightbox" href="../img/er_relation_participation.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="er_relation_participation" src="../img/er_relation_participation.png" /></a></p>
+<h3 id="generalization-and-specialization">Generalization and Specialization</h3>
+<p>The ER Model has the power of expressing database entities in a conceptual hierarchical manner. As the hierarchy goes up, it generalizes the view of entities, and as we go deep in the hierarchy, it gives us the detail of every entity included.</p>
+<p>Going up in this structure is called generalization, where entities are clubbed together to represent a more generalized view. For example, a particular student named Mira can be generalized along with all the students. The entity shall be a student, and further, the student is a person. The reverse is called specialization where a person is a student, and that student is Mira.</p>
+<h4 id="generalization">Generalization</h4>
+<p>As mentioned above, the process of generalizing entities, where the generalized entities contain the properties of all the generalized entities, is called generalization. In generalization, a number of entities are brought together into one generalized entity based on their similar characteristics. For example, pigeon, house sparrow, crow and dove can all be generalized as Birds.</p>
+<p><a class="glightbox" href="../img/generalization.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="generalization" src="../img/generalization.png" /></a></p>
+<h4 id="specialization">Specialization</h4>
+<p>Specialization is the opposite of generalization. In specialization, a group of entities is divided into sub-groups based on their characteristics. Take a group ‘Person’ for example. A person has name, date of birth, gender, etc. These properties are common in all persons, human beings. But in a company, persons can be identified as employee, employer, customer, or vendor, based on what role they play in the company.</p>
+<p><a class="glightbox" href="../img/specialization.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="specialization" src="../img/specialization.png" /></a></p>
+<p>Similarly, in a school database, persons can be specialized as teacher, student, or a staff, based on what role they play in school as entities.</p>
+<h4 id="inheritance">Inheritance</h4>
+<p>We use all the above features of ER-Model in order to create classes of objects in object-oriented programming. The details of entities are generally hidden from the user; this process known as abstraction.</p>
+<p>Inheritance is an important feature of Generalization and Specialization. It allows lower-level entities to inherit the attributes of higher-level entities.</p>
+<p><a class="glightbox" href="../img/inheritance.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="inheritance" src="../img/inheritance.png" /></a></p>
+<p>For example, the attributes of a Person class such as name, age, and gender can be inherited by lower-level entities such as Student or Teacher.</p>
+<h3 id="codds-12-rule">Codd's 12 Rule</h3>
+<p>Dr Edgar F. Codd, after his extensive research on the Relational Model of database systems, came up with twelve rules of his own, which according to him, a database must obey in order to be regarded as a true relational database.</p>
+<p>These rules can be applied on any database system that manages stored data using only its relational capabilities. This is a foundation rule, which acts as a base for all the other rules.</p>
+<h4 id="rule-1-information-rule">Rule 1: Information Rule</h4>
+<p>The data stored in a database, may it be user data or metadata, must be a value of some table cell. Everything in a database must be stored in a table format.</p>
+<h4 id="rule-2-guaranteed-access-rule">Rule 2: Guaranteed Access Rule</h4>
+<p>Every single data element (value) is guaranteed to be accessible logically with a combination of table-name, primary-key (row value), and attribute-name (column value). No other means, such as pointers, can be used to access data.</p>
+<h4 id="rule-3-systematic-treatment-of-null-values">Rule 3: Systematic Treatment of NULL Values</h4>
+<p>The NULL values in a database must be given a systematic and uniform treatment. This is a very important rule because a NULL can be interpreted as one the following − data is missing, data is not known, or data is not applicable.</p>
+<h4 id="rule-4-active-online-catalog">Rule 4: Active Online Catalog</h4>
+<p>The structure description of the entire database must be stored in an online catalog, known as data dictionary, which can be accessed by authorized users. Users can use the same query language to access the catalog which they use to access the database itself.</p>
+<h4 id="rule-5-comprehensive-data-sub-language-rule">Rule 5: Comprehensive Data Sub-Language Rule</h4>
+<p>A database can only be accessed using a language having linear syntax that supports data definition, data manipulation, and transaction management operations. This language can be used directly or by means of some application. If the database allows access to data without any help of this language, then it is considered as a violation.</p>
+<h4 id="rule-6-view-updating-rule">Rule 6: View Updating Rule</h4>
+<p>All the views of a database, which can theoretically be updated, must also be updatable by the system.</p>
+<h4 id="rule-7-high-level-insert-update-and-delete-rule">Rule 7: High-Level Insert, Update, and Delete Rule</h4>
+<p>A database must support high-level insertion, updation, and deletion. This must not be limited to a single row, that is, it must also support union, intersection and minus operations to yield sets of data records.</p>
+<h4 id="rule-8-physical-data-independence">Rule 8: Physical Data Independence</h4>
+<p>The data stored in a database must be independent of the applications that access the database. Any change in the physical structure of a database must not have any impact on how the data is being accessed by external applications.</p>
+<h4 id="rule-9-logical-data-independence">Rule 9: Logical Data Independence</h4>
+<p>The logical data in a database must be independent of its user’s view (application). Any change in logical data must not affect the applications using it. For example, if two tables are merged or one is split into two different tables, there should be no impact or change on the user application. This is one of the most difficult rule to apply.</p>
+<h4 id="rule-10-integrity-independence">Rule 10: Integrity Independence</h4>
+<p>A database must be independent of the application that uses it. All its integrity constraints can be independently modified without the need of any change in the application. This rule makes a database independent of the front-end application and its interface.</p>
+<h4 id="rule-11-distribution-independence">Rule 11: Distribution Independence</h4>
+<p>The end-user must not be able to see that the data is distributed over various locations. Users should always get the impression that the data is located at one site only. This rule has been regarded as the foundation of distributed database systems.</p>
+<h4 id="rule-12-non-subversion-rule">Rule 12: Non-Subversion Rule</h4>
+<p>If a system has an interface that provides access to low-level records, then the interface must not be able to subvert the system and bypass security and integrity constraints.</p>
+<h3 id="relational-data-model">Relational Data Model</h3>
+<p>Relational data model is the primary data model, which is used widely around the world for data storage and processing. This model is simple and it has all the properties and capabilities required to process data with storage efficiency.</p>
+<h4 id="concepts">Concepts</h4>
+<ul>
+<li>
+<p>Tables − In relational data model, relations are saved in the format of Tables. This format stores the relation among entities. A table has rows and columns, where rows represents records and columns represent the attributes.</p>
+</li>
+<li>
+<p>Tuple − A single row of a table, which contains a single record for that relation is called a tuple.</p>
+</li>
+<li>
+<p>Relation instance − A finite set of tuples in the relational database system represents relation instance. Relation instances do not have duplicate tuples.</p>
+</li>
+<li>
+<p>Relation schema − A relation schema describes the relation name (table name), attributes, and their names.</p>
+</li>
+<li>
+<p>Relation key − Each row has one or more attributes, known as relation key, which can identify the row in the relation (table) uniquely.</p>
+</li>
+<li>
+<p>Attribute domain − Every attribute has some pre-defined value scope, known as attribute domain.</p>
+</li>
+</ul>
+<h4 id="constraints">Constraints</h4>
+<p>Every relation has some conditions that must hold for it to be a valid relation. These conditions are called Relational Integrity Constraints. There are three main integrity constraints −
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>1. Key constraints
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>2. Domain constraints
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>3. Referential integrity constraints
+</code></pre></div></p>
+<h5 id="key-constraints">Key Constraints</h5>
+<p>There must be at least one minimal subset of attributes in the relation, which can identify a tuple uniquely. This minimal subset of attributes is called key for that relation. If there are more than one such minimal subsets, these are called candidate keys.</p>
+<p>Key constraints force that −</p>
+<ul>
+<li>
+<p>in a relation with a key attribute, no two tuples can have identical values for key attributes.</p>
+</li>
+<li>
+<p>a key attribute can not have NULL values.</p>
+</li>
+</ul>
+<p>Key constraints are also referred to as Entity Constraints.</p>
+<h5 id="domain-constraints">Domain Constraints</h5>
+<p>Attributes have specific values in real-world scenario. For example, age can only be a positive integer. The same constraints have been tried to employ on the attributes of a relation. Every attribute is bound to have a specific range of values. For example, age cannot be less than zero and telephone numbers cannot contain a digit outside 0-9.</p>
+<h5 id="referential-integrity-constraints">Referential integrity Constraints</h5>
+<p>Referential integrity constraints work on the concept of Foreign Keys. A foreign key is a key attribute of a relation that can be referred in other relation.</p>
+<p>Referential integrity constraint states that if a relation refers to a key attribute of a different or same relation, then that key element must exist.</p>
+<h3 id="er-model-to-relational-model">ER Model to Relational Model</h3>
+<p>ER Model, when conceptualized into diagrams, gives a good overview of entity-relationship, which is easier to understand. ER diagrams can be mapped to relational schema, that is, it is possible to create relational schema using ER diagram. We cannot import all the ER constraints into relational model, but an approximate schema can be generated.</p>
+<p>There are several processes and algorithms available to convert ER Diagrams into Relational Schema. Some of them are automated and some of them are manual. We may focus here on the mapping diagram contents to relational basics.</p>
+<p>ER diagrams mainly comprise of 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1. Entity and its attributes
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2. Relationship, which is association among entities.
+</code></pre></div></p>
+<h4 id="mapping-entity">Mapping Entity</h4>
+<p>An entity is a real-world object with some attributes.</p>
+<p><a class="glightbox" href="../img/mapping_entities.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="entity-mapping" src="../img/mapping_entities.png" /></a></p>
+<h5 id="mapping-process-algorithm">Mapping Process (Algorithm)</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>1. Create table for each entity.
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>2. Entity&#39;s attributes should become fields of tables with their respective data types.
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>3. Declare primary key.
+</code></pre></div>
+<h4 id="mapping-relationship">Mapping Relationship</h4>
+<p>A relationship is an association among entities.</p>
+<p><a class="glightbox" href="../img/mapping_relationship.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="mapping_relationship" src="../img/mapping_relationship.png" /></a></p>
+<h5 id="mapping-process">Mapping Process</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>1. Create table for a relationship.
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>2. Add the primary keys of all participating Entities as fields of table with their respective data types.
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>3. If relationship has any attribute, add each attribute as field of table.
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>4. Declare a primary key composing all the primary keys of participating entities.
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>5. Declare all foreign key constraints.
+</code></pre></div>
+<h4 id="mapping-weak-entity-sets">Mapping Weak Entity Sets</h4>
+<p>A weak entity set is one which does not have any primary key associated with it.</p>
+<p><a class="glightbox" href="../img/mapping_weak_entity_sets.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="mapping_weak_entity_sets" src="../img/mapping_weak_entity_sets.png" /></a></p>
+<h5 id="mapping-process_1">Mapping Process</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>1. Create table for weak entity set.
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>2. Add all its attributes to table as field.
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>3. Add the primary key of identifying entity set.
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>4. Declare all foreign key constraints.
+</code></pre></div>
+<h4 id="mapping-hierarchical-entities">Mapping Hierarchical Entities</h4>
+<p>ER specialization or generalization comes in the form of hierarchical entity sets.</p>
+<p><a class="glightbox" href="../img/inheritance%20%281%29.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="inheritance (1)" src="../img/inheritance%20%281%29.png" /></a></p>
+<h5 id="mapping-process_2">Mapping Process</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>1. Create tables for all higher-level entities.
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>2. Create tables for lower-level entities.
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>3. Add primary keys of higher-level entities in the table of lower-level entities.
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>4. In lower-level tables, add all other attributes of lower-level entities.
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>5. Declare primary key of higher-level table and the primary key for lower-level table.
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>6. Declare foreign key constraints.
+</code></pre></div>
+<h3 id="database-normalization">Database Normalization</h3>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2022 <a href="https://github.com/vishalsingh17/"  target="_blank" rel="noopener">Vishal Singh</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/vishalsingh17/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/vishalsingh1719/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/vishal_singh17/" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+
+
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "header.autohide", "announce.dismiss"], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "stable", "provider": "VS17"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.726fbb30.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://www.mathjax.org/"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

@@ -18,7 +18,7 @@ Here you will get detailed concept explanation of tech stack like <b>Data Scienc
 
 - [Python](./docs/Python.md)
 - [DBMS](./docs/DBMS.md)
-- [SQL](./docs/SQL.md)
+- [MySQL](./docs/MySQL.md)
 - [Machine Learning](./docs/ML.md)
 - [Deep Learning](./docs/DL.md)
 - [MLOps](./docs/MLOps.md)
